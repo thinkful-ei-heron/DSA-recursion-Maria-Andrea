@@ -124,15 +124,31 @@ let maze = [
     [' ', ' ', ' ', ' ', ' ', ' ', 'e']
 ];
 
-const wayOut = function () {
-
+const wayOut = function (mySmallMaze, x = 0, y = 0) {
+    //base case
+    if (mySmallMaze[x][y] === 'e') {
+        return '';
+    }
+    let direction;
+    if (mySmallMaze[x + 1] === '') {
+        x++;
+        direction = 'R';
+    }
+    if (mySmallMaze[y + 1] === '') {
+        y++;
+        direction = 'D';
+    }
+    else {
+        x--;
+        direction = 'L';
+    }
+    return direction + wayOut(mySmallMaze, x, y);
 };
-wayOut(maze);
+console.log(wayOut(mySmallMaze));
 
 
 //Binary Representation
 //print binary representation of a given number assume all numbers are positive
-//0 should be 0
 
 //input: 25      3 => 11
 //output: 1101
