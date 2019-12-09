@@ -45,7 +45,7 @@ const reverseStr = function (str) {
 
     return console.log(newStr);
 
-}
+};
 
 reverseStr('Hello');
 
@@ -64,11 +64,56 @@ numCounts(9);
 //input 02/20/2020
 //output ['02', '20', '2020']
 
-const strSplitter = function (str, separator) {
-    if (str === '') {
-        return '';
+const strSplitter = function (str, array = []) {
+    let index = str.indexOf('/');
+    let i = str.slice(0, index);
+
+    if (!str.includes('/')) {
+        array.push(str);
+        return array;
     }
 
+    array.push(i);
+
+    let splitStr = str.slice(index + 1, str.length);
+    return strSplitter(splitStr, array);
 };
 
 strSplitter('02/20/2020');
+strSplitter('test/code');
+
+
+
+
+
+//Binary Representation
+//print binary representation of a given number assume all numbers are positive
+//0 should be 0
+
+//input: 25      3 => 11
+//output: 1101
+
+//25%2 = 1  25/2 = 12
+//12%2 = 0  12/2 = 6
+//6%2 = 0   6/2=3
+//3%2 = 1   3/2 = 1
+//1%2 =1  1/2 = 0 STOP
+
+//1101
+
+//binary goes from right to left, bottom to top
+
+function binaryRep(num) {
+    //base case
+    if (num < 0) {
+        return '';
+    }
+
+    let binary = num % 2; //1 0 0
+    return binaryRep(Math.floor(num / 2)) + binary; //12 6 3
+}
+
+binaryRep(3);
+//   binaryRep(1) + 1 => 1+1 = 11
+//     binaryRep() + 1  => '' + 1
+
