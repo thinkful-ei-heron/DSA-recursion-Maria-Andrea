@@ -126,11 +126,12 @@ let maze = [
 
 const wayOut = function (mySmallMaze, y = 0, x = 0) {
     //base case
+    console.log(x, y);
     if (mySmallMaze[y][x] === 'e') {
-        return 'exit';
+        return '';
     }
     let direction;
-    if (mySmallMaze[x + 1] && mySmallMaze[y][x + 1] !== '*') {
+    if (mySmallMaze[y][x + 1] && mySmallMaze[y][x + 1] !== '*') {
         x++;
         direction = 'R';
     }
@@ -138,13 +139,16 @@ const wayOut = function (mySmallMaze, y = 0, x = 0) {
         y++;
         direction = 'D';
     }
+    else if (mySmallMaze[y - 1] && mySmallMaze[y - 1][x] !== '*') {
+        y--;
+        direction = 'U';
+    }
     else {
         x--;
         direction = 'L';
     }
     return direction + wayOut(mySmallMaze, y, x);
 };
-console.log(wayOut(mySmallMaze));
 
 //Anagrams
 function findAnagrams(str) {
