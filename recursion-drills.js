@@ -168,6 +168,69 @@ function findAnagrams(str) {
 
 findAnagrams('east')
 
+//Organization Chart 
+const hierarchy = {
+    'Zuckerberg': {
+        'Schroepfer': {
+            'Bosworth': {
+                'Steve': {},
+                'Kyle': {},
+                'Andra': {}
+            },
+            'Zhao': {
+                'Richie': {},
+                'Sofia': {},
+                'Jen': {}
+            }
+        },
+        'Schrage': {
+            'VanDyck': {
+                'Sabrina': {},
+                'Michelle': {},
+                'Josh': {}
+            },
+            'Swain': {
+                'Blanch': {},
+                'Tom': {},
+                'Joe': {}
+            }
+        },
+        'Sandberg': {
+            'Goler': {
+                'Eddie': {},
+                'Julie': {},
+                'Annie': {}
+            },
+            'Hernandez': {
+                'Rowi': {},
+                'Inga': {},
+                'Morgan': {}
+            },
+            'Moissinac': {
+                'Amy': {},
+                'Chuck': {},
+                'Vinni': {}
+            },
+            'Kelley': {
+                'Eric': {},
+                'Ana': {},
+                'Wes': {}
+            }
+        }
+    }
+}
+
+const orgChart = function (chart, i = 1) {
+    let indent = ' '.repeat(4 * i);
+
+    Object.keys(chart).forEach(key => {
+        console.log(indent + key);
+        i++;
+        orgChart(chart[key], i);
+    });
+}
+console.log(orgChart(hierarchy));
+
 //Binary Representation
 //print binary representation of a given number assume all numbers are positive
 
