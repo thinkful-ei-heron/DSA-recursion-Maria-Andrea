@@ -83,6 +83,17 @@ strSplitter('02/20/2020');
 strSplitter('test/code');
 
 
+//Factorial
+//multiply number by each num between itself and 1
+//5*4*3*2*1 = 120
+
+const factorial = function (num) {
+    if (num === 1) {
+        return 1;
+    }
+    return num * factorial(num - 1);
+};
+factorial(5); //120
 
 
 
