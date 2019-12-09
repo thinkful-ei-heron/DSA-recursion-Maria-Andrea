@@ -82,6 +82,19 @@ const strSplitter = function (str, array = []) {
 strSplitter('02/20/2020');
 strSplitter('test/code');
 
+//Fibonacci
+
+function fibonacci(number) {
+
+    if (number < 1)
+        return 0;
+
+    if (number <= 2)
+        return 1;
+    return fibonacci(number - 1) + fibonacci(number - 2);
+}
+
+fibonacci(7);
 
 //Factorial
 //multiply number by each num between itself and 1
@@ -95,6 +108,26 @@ const factorial = function (num) {
 };
 factorial(5); //120
 
+//Find way out of maze
+//possible exit path RRDDLLDDRRRRRR
+let mySmallMaze = [
+    [' ', ' ', ' '],
+    [' ', '*', ' '],
+    [' ', ' ', 'e']
+];
+
+let maze = [
+    [' ', ' ', ' ', '*', ' ', ' ', ' '],
+    ['*', '*', ' ', '*', ' ', '*', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    [' ', '*', '*', '*', '*', '*', ' '],
+    [' ', ' ', ' ', ' ', ' ', ' ', 'e']
+];
+
+const wayOut = function () {
+
+};
+wayOut(maze);
 
 
 //Binary Representation
