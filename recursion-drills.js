@@ -124,17 +124,17 @@ let maze = [
     [' ', ' ', ' ', ' ', ' ', ' ', 'e']
 ];
 
-const wayOut = function (mySmallMaze, x = 0, y = 0) {
+const wayOut = function (mySmallMaze, y = 0, x = 0) {
     //base case
-    if (mySmallMaze[x][y] === 'e') {
-        return '';
+    if (mySmallMaze[y][x] === 'e') {
+        return 'exit';
     }
     let direction;
-    if (mySmallMaze[x + 1] === '') {
+    if (mySmallMaze[x + 1] && mySmallMaze[y][x + 1] !== '*') {
         x++;
         direction = 'R';
     }
-    if (mySmallMaze[y + 1] === '') {
+    else if (mySmallMaze[y + 1] && mySmallMaze[y + 1][x] !== '*') {
         y++;
         direction = 'D';
     }
@@ -142,7 +142,7 @@ const wayOut = function (mySmallMaze, x = 0, y = 0) {
         x--;
         direction = 'L';
     }
-    return direction + wayOut(mySmallMaze, x, y);
+    return direction + wayOut(mySmallMaze, y, x);
 };
 console.log(wayOut(mySmallMaze));
 
